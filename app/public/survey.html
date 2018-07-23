@@ -1,15 +1,264 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Survey Time</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     </head>
 
     <body>
-        test survey
+        <h1>Survey Time</h1>
+
+        <div class="field">
+            <label class="label">Your Name</label>
+            <div class="control">
+              <input class="input" type="text" id="formName">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Picture URL</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="text" id="formPicture">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+        
+        <div class="field">
+            <label class="label">Please answer the following with 1 being strongly agree, 5 being strongly disagree</label>
+        </div>
+          
+        <div class="field">
+            <label class="label">I keep up with the latest sports news.</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">I keep up with the latest world news.</label>
+                <div class="control">
+                    <div class="select">
+                        <select  id="q2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">I prefer a quiet environment to a loud one.</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q3">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">A sense of humour is important to me.</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q4">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">How important is religion to you.</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q5">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Question 6</label>
+                <div class="control">
+                    <div class="select">
+                        <select  id="q6">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Question 7</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q7">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Question 8</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q8">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Question 9</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q9">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+        <div class="field">
+            <label class="label">What is your favourite number from 1-5.</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="q10">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" id="submitButton">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-text">Cancel</button>
+            </div>
+          </div>
+
+            <div class="modal" id="bestFriend">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <!-- Any other Bulma elements you want -->
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
     </body>
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
+    </script>
+    <script>
+        $(".modal-background").on("click", function() {
+            $("#bestFriend").toggleClass("is-active");
+        });
+
+        $("#submitButton").on("click", function() {
+            event.preventDefault();
+            var survey = {
+                name: $("#formName").val(),
+                photo: $("#formPicture").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+            
+             //function to compare friends in database (gotta grab json object to pass to variable, foreach, then return best fit)
+            $.getJSON("./app/data/friend.js", function(data) {
+                var otherPeople = json.parse(data);
+                var list = [];
+
+                otherPeople.forEach(function(name) {
+                    var i = 0;
+                    var score = 0;
+                    while (i < 10) {
+                        score += Math.abs(parseInt(survey.scores[i])-parseInt(name.scores[i]))
+                        i++
+                    }
+                    list.push(score);
+                });
+
+                var mostCommonPoints = Math.min(list);
+                var otherPeoplePosition = otherPeople.indexOf(mostCommonPoints);
+
+                //write to html best friend.
+                $(".modal-content").html(`<div>Your best friend is ${otherPeople[otherPeoplePosition].name}.</div>
+                <div><img src="${otherPeople[otherPeoplePosition].photo}" alt="Smiley face" height="42" width="42"></div>`)
+
+                $("#bestFriend").toggleClass("is-active");  
+            })
+
+            $.post("/api/friends", `${survey},`, function(data){ //fix post?
+
+            })
+            
+            //proper pushing to array in friend.js
+        });
     </script>
 </html>

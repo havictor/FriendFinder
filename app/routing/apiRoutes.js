@@ -7,7 +7,7 @@ module.exports = function(app) {
     })
 
     app.post("/api/friends"), function(req, res) {
-        res.appendFile("./app/data/friend.js", survey, (err) => {
+        res.appendFile(path.resolve("./app/data/friend.js"), req.body.survey, (err) => {
             if (err) console.log(err);
         })
     }
