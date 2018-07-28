@@ -1,18 +1,1 @@
-[
-    {
-        "name": "test",
-        "photo": "https://imgur.com/gallery/gQIQz",
-        "scores": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            5,
-            4,
-            3,
-            2,
-            1
-        ]
-    }
-]
+["[\"[{\\\"name\\\":\\\"test2\\\",\\\"photo\\\":\\\"https://imgur.com/gallery/gQIQz\\\",\\\"scores\\\":[1,2,3,4,5,5,4,3,2,1]}]\",[\"{\\\"name\\\":\\\"test2\\\",\\\"photo\\\":\\\"https://imgur.com/gallery/gQIQz\\\",\\\"scores\\\":[1,2,3,4,5,5,4,3,2,1]}\"]]",["{\"name\":\"test3\",\"photo\":\"https://imgur.com/gallery/gQIQz\",\"scores\":[1,2,3,4,5,5,4,3,2,1]}"]]

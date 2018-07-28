@@ -5,6 +5,8 @@ var survey = {};
 
 var app = express();
 
+app.use(bodyParser.json());
+
 var port = 8080;
 
 app.listen(port, function() {
