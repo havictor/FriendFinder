@@ -210,8 +210,12 @@
             $("#bestFriend").toggleClass("is-active");
         });
 
+        $(".modal-close").on("click", function() {
+            $("#bestFriend").toggleClass("is-active");
+        });
+
         $("#submitButton").on("click", function() {
-            event.preventDefault();
+            //event.preventDefault();
 
             var survey = {
                 name: $("#formName").val(),
@@ -229,40 +233,16 @@
                     $("#q10").val()
                 ]
             };
-            
-             //function to compare friends in database (gotta grab json object to pass to variable, foreach, then return best fit)
-            $.getJSON("./app/data/friend.js", function(data) {
-                var otherPeople = json.parse(data);
-                var list = [];
-                console.log(otherPeople);
-
-                otherPeople.forEach(function(name) {
-                    var i = 0;
-                    var score = 0;
-                    while (i < 10) {
-                        score += Math.abs(parseInt(survey.scores[i])-parseInt(name.scores[i]))
-                        i++
-                    }
-                    list.push(score);
-                });
-
-                var mostCommonPoints = Math.min(list);
-                var otherPeoplePosition = otherPeople.indexOf(mostCommonPoints);
-
-                //write to html best friend.
-                $(".modal-content").html(`<div>Your best friend is ${otherPeople[otherPeoplePosition].name}.</div>
-                <div><img src="${otherPeople[otherPeoplePosition].photo}" alt="Smiley face" height="42" width="42"></div>`)
-
-                $("#bestFriend").toggleClass("is-active");  
-            })
+            console.log(survey);
 
             $.post("/api/friends", survey, function(data){ //fix post? Currently survey reads as undefined
-                if (err) {  
-                    console.log(err);
-                }
-            });
-            
-            //proper pushing to array in friend.js
+                console.log(data);
+
+                $(".modal-content").html(`<div>Your best friend is ${data.name}.</div>
+                <div><img src="${data.photo}" alt="Smiley face" height="300" width="300"></div>`)
+
+                $("#bestFriend").toggleClass("is-active");  
+            }, "json");
         });
     </script>
 </html>
