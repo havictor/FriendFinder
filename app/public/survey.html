@@ -4,24 +4,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Survey Time</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     </head>
 
     <body>
-        <h1>Survey Time</h1>
+            <section class="hero is-dark">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Survey Time
+                            </h1>
+                        </div>
+                    </div>
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="/" class="navbar-item">
+                            Home
+                            </a>
+                            <a href="/survey" class="navbar-item is-active">
+                            Survey
+                            </a>
+                            <a href="/api/friends" class="navbar-item">
+                            Friends
+                            </a>
+                            <span class="navbar-item">
+                            <a href="https://github.com/havictor/FriendFinder/" class="button is-dark is-inverted">
+                                <span class="icon">
+                                <i class="fab fa-github"></i>
+                                </span>
+                            <span>Github Repo</span>
+                            </a>
+                            </span>
+                        </div>
+                    </div>
+                </section>
 
         <div class="field">
             <label class="label">Your Name</label>
-            <div class="control">
-              <input class="input" type="text" id="formName">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input lengthCheck" type="text" id="formName">
+              <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
             </div>
           </div>
           
           <div class="field">
             <label class="label">Picture URL</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" id="formPicture">
+              <input class="input lengthCheck" type="text" id="formPicture">
               <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-address-card"></i>
               </span>
               <span class="icon is-small is-right">
                 <i class="fas fa-check"></i>
@@ -185,17 +221,18 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" id="submitButton">Submit</button>
+              <button class="button is-black" id="submitButton">Submit</button>
             </div>
             <div class="control">
-              <button class="button is-text">Cancel</button>
+                <a href="/">
+              <button class="button is-text" id="abort">Cancel</button>
+                </a>
             </div>
           </div>
 
             <div class="modal" id="bestFriend">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-                    <!-- Any other Bulma elements you want -->
                 </div>
                 <button class="modal-close is-large" aria-label="close"></button>
             </div>
@@ -215,7 +252,7 @@
         });
 
         $("#submitButton").on("click", function() {
-            //event.preventDefault();
+            event.preventDefault();
 
             var survey = {
                 name: $("#formName").val(),
@@ -233,16 +270,24 @@
                     $("#q10").val()
                 ]
             };
-            console.log(survey);
 
-            $.post("/api/friends", survey, function(data){ //fix post? Currently survey reads as undefined
-                console.log(data);
+            if (survey.name.length < 1) {
+                alert("You need a longer name!")
+            }
+            
+            else if (survey.photo.length < 5) {
+                alert("That's not a real photo link, is it?")
+            }
 
-                $(".modal-content").html(`<div>Your best friend is ${data.name}.</div>
-                <div><img src="${data.photo}" alt="Smiley face" height="300" width="300"></div>`)
+            else {
 
-                $("#bestFriend").toggleClass("is-active");  
-            }, "json");
+                $.post("/api/friends", survey, function(data){
+                    $(".modal-content").html(`<div><h1>Your best friend is ${data.name}.</h1></div>
+                    <div><img src="${data.photo}" alt="Smiley face" height="300" width="s300"></div>`)
+
+                    $("#bestFriend").toggleClass("is-active");  
+                }, "json");
+            }
         });
     </script>
 </html>
